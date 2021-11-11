@@ -30,6 +30,9 @@
   border: 1px solid #131515;
   background-color: #002b4e;
 }
+.calculator-grid__screen h2 {
+  height: 40%;
+}
 .calculator-grid__buttons {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -49,7 +52,7 @@
     margin: 5%;
   }
 }
-.calculator-grid__buttons__button {
+button {
   height: 60%;
   width: 80%;
   border-radius: 30px;
@@ -58,7 +61,7 @@
   background-color: #7de2d1;
 }
 
-.calculator-grid__buttons__button:hover {
+button:hover {
   cursor: pointer;
   box-shadow: 0 4px 8px #020249;
 }
