@@ -22,22 +22,34 @@ let calculatedNumber = 0;
 
 
 numberKeys.forEach((button) => {
-    button.addEventListener("click", (numbers) => {
-      if(maxLength(20)) {
-        (!currentNumber) ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
-        updateDisplay(currentNumber);
-        console.log(currentNumber);
-      }
-    })
-  });
+  button.addEventListener("click", (numbers) => {
+    if (maxLength(25)) {
+      (!currentNumber) ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
+      updateDisplay(currentNumber);
+      console.log(currentNumber);
+    }
+  })
+});
 
 
 operatorKeys.forEach((button) => {
-    button.addEventListener("click", (numbers) => {
-      if(maxLength(25)) {
-        !currentNumber ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
-        updateDisplay(currentNumber);
-        console.log(currentNumber);
-      }
-    })
-  });
+  button.addEventListener("click", (numbers) => {
+    if (maxLength(25)) {
+      !currentNumber ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
+      updateDisplay(currentNumber);
+      console.log(currentNumber);
+    }
+  })
+});
+
+function calculate(currentNumber, previousNumber, operatorValue) {
+  if (operator == "+") {
+    return previousNumber + currentNumber;
+  } else if (operatorValue == "-") {
+    return previousNumber - currentNumber;
+  } else if (operatorValue == "*") {
+    return previousNumber * currentNumber;
+  } else if (operatorValue == "÷") {
+    return previousNumber / currentNumber;
+  }
+}
