@@ -1,0 +1,13 @@
+button {
+    height: 60%;
+    width: 80%;
+    border-radius: 30px;
+    font-family: $font-two;
+    font-size: 40px;
+    background-color: rgb(125, 226, 209);
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgb(2, 2, 73);
+}
