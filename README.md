@@ -19,3 +19,6 @@ A percentage button input for working with percentages.
 A button to toggle for two different coloured displays (night shift/light shift).
 
 Add an ans button that allows for saving and adding the previous answer button back into a calculation when wanted.
+
+Bugs:
+Need to fix previousNumber so that when doing multiple calculations it stores calculatedNumber so consecutive calculations can be done
