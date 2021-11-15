@@ -18,27 +18,25 @@ let calculatedNumber = 0;
 
 
 const maxLength = (numberLength) => currentNumber.length < numberLength;
-const updateDisplay = (values) => screenResult.innerHTML = values;
+const updateScreen = (values) => screenResult.innerHTML = values;
 
 
 numberKeys.forEach((button) => {
   button.addEventListener("click", (numbers) => {
     if (maxLength(25)) {
       (!currentNumber) ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
-      updateDisplay(currentNumber);
-      console.log(currentNumber);
+      updateScreen(currentNumber);
     }
   }
   )
 
 });
 
-
 operatorKeys.forEach((button) => {
   button.addEventListener("click", (operators) => {
     if (maxLength(25)) {
       operatorValue = operators.target.innerHTML;
-      updateDisplay(operatorValue);
+      updateScreen(operatorValue);
     }
     if (currentNumber) {
       previousNumber = currentNumber;
@@ -49,21 +47,28 @@ operatorKeys.forEach((button) => {
 });
 
 equalsKey.addEventListener("click", () => {
-    if (operatorValue == "+") {
-      calculatedNumber = parseFloat(previousNumber) + parseFloat(currentNumber);
-    } else if (operatorValue == "-") {
-      calculatedNumber = parseFloat(previousNumber) - parseFloat(currentNumber);
-    } else if (operatorValue == "*") {
-      calculatedNumber = parseFloat(previousNumber) * parseFloat(currentNumber);
-    } else if (operatorValue == "÷") {
-      calculatedNumber = parseFloat(previousNumber) / parseFloat(currentNumber);
-    }
+  if (operatorValue == "+") {
+    calculatedNumber = parseFloat(previousNumber) + parseFloat(currentNumber);
+  } else if (operatorValue == "-") {
+    calculatedNumber = parseFloat(previousNumber) - parseFloat(currentNumber);
+  } else if (operatorValue == "*") {
+    calculatedNumber = parseFloat(previousNumber) * parseFloat(currentNumber);
+  } else if (operatorValue == "÷") {
+    calculatedNumber = parseFloat(previousNumber) / parseFloat(currentNumber);
+  }
 
-    updateDisplay(calculatedNumber);
-    console.log(calculatedNumber);
-    currentNumber = "";
+  updateScreen(calculatedNumber);
+  console.log(calculatedNumber);
+  currentNumber = "";
 });
 
+allClear.addEventListener("click", () => {
+  updateScreen("0");
+  currentNumber = "";
+  previousNumber = "";
+  calculatedNumber = 0;
+}
+);
 
 // if (currentNumber === "") {
       //   screenResult.innerHTML = numbers.target.innerHTML
