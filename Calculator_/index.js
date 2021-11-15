@@ -4,21 +4,21 @@ const modeShift = document.querySelector("#toggle")
 const allClear = document.querySelector("#allClear")
 const deleteKey = document.querySelector("#delete")
 const answerKey = document.querySelector("#answer")
-const equalKey = document.querySelector("#equals")
+const equalsKey = document.querySelector("#equals")
 const decimalKey = document.querySelector("#decimal")
 const numberKeys = document.querySelectorAll(".calculator-grid__buttons__number")
 const operatorKeys = document.querySelectorAll(".calculator-grid__buttons__operation")
 let screenResult = document.querySelector("#output")
 
-const maxLength = (numberLength) => currentNumber.length < numberLength;
-const updateDisplay = (values) => screenResult.innerHTML = values;
 
 let currentNumber = "";
-let operatorValue = "";
 let previousNumber = "";
-let storedValue = 0;
+let operatorValue = "";
 let calculatedNumber = 0;
 
+
+const maxLength = (numberLength) => currentNumber.length < numberLength;
+const updateDisplay = (values) => screenResult.innerHTML = values;
 
 
 numberKeys.forEach((button) => {
@@ -28,28 +28,44 @@ numberKeys.forEach((button) => {
       updateDisplay(currentNumber);
       console.log(currentNumber);
     }
-  })
+  }
+  )
+
 });
 
 
 operatorKeys.forEach((button) => {
-  button.addEventListener("click", (numbers) => {
+  button.addEventListener("click", (operators) => {
     if (maxLength(25)) {
-      !currentNumber ? currentNumber = numbers.target.innerHTML : currentNumber += numbers.target.innerHTML;
-      updateDisplay(currentNumber);
-      console.log(currentNumber);
+      operatorValue = operators.target.innerHTML;
+      updateDisplay(operatorValue);
     }
+    if (currentNumber) {
+      previousNumber = currentNumber;
+      currentNumber = "";
+    }
+
   })
 });
 
-function calculate(currentNumber, previousNumber, operatorValue) {
-  if (operator == "+") {
-    return previousNumber + currentNumber;
-  } else if (operatorValue == "-") {
-    return previousNumber - currentNumber;
-  } else if (operatorValue == "*") {
-    return previousNumber * currentNumber;
-  } else if (operatorValue == "÷") {
-    return previousNumber / currentNumber;
-  }
-}
+equalsKey.addEventListener("click", () => {
+    if (operatorValue == "+") {
+      calculatedNumber = parseFloat(previousNumber) + parseFloat(currentNumber);
+    } else if (operatorValue == "-") {
+      calculatedNumber = parseFloat(previousNumber) - parseFloat(currentNumber);
+    } else if (operatorValue == "*") {
+      calculatedNumber = parseFloat(previousNumber) * parseFloat(currentNumber);
+    } else if (operatorValue == "÷") {
+      calculatedNumber = parseFloat(previousNumber) / parseFloat(currentNumber);
+    }
+
+    updateDisplay(calculatedNumber);
+    console.log(calculatedNumber);
+    currentNumber = "";
+});
+
+
+// if (currentNumber === "") {
+      //   screenResult.innerHTML = numbers.target.innerHTML
+      // } else {
+      //   screenResult.innerHTML = currentNumber + numbers.target.innerHTML
