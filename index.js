@@ -15,6 +15,7 @@ let currentNumber = "";
 let previousNumber = "";
 let operatorValue = "";
 let calculatedNumber = 0;
+let storedValue = 0;
 
 
 const maxLength = (numberLength) => currentNumber.length < numberLength;
@@ -41,25 +42,30 @@ operatorKeys.forEach((button) => {
     if (currentNumber) {
       previousNumber = currentNumber;
       currentNumber = "";
+      storedValue = previousNumber;
+      previousNumber = "";
     }
 
   })
 });
 
 equalsKey.addEventListener("click", () => {
+
   if (operatorValue == "+") {
-    calculatedNumber = parseFloat(previousNumber) + parseFloat(currentNumber);
+    calculatedNumber = parseFloat(storedValue) + parseFloat(currentNumber);
   } else if (operatorValue == "-") {
-    calculatedNumber = parseFloat(previousNumber) - parseFloat(currentNumber);
+    calculatedNumber = parseFloat(storedValue) - parseFloat(currentNumber);
   } else if (operatorValue == "*") {
-    calculatedNumber = parseFloat(previousNumber) * parseFloat(currentNumber);
+    calculatedNumber = parseFloat(storedValue) * parseFloat(currentNumber);
   } else if (operatorValue == "÷") {
-    calculatedNumber = parseFloat(previousNumber) / parseFloat(currentNumber);
+    calculatedNumber = parseFloat(storedValue) / parseFloat(currentNumber);
   }
 
   updateScreen(calculatedNumber);
   console.log(calculatedNumber);
   currentNumber = "";
+  storedValue = calculatedNumber;
+  calculatedNumber = 0;
 });
 
 allClear.addEventListener("click", () => {
@@ -69,8 +75,3 @@ allClear.addEventListener("click", () => {
   calculatedNumber = 0;
 }
 );
-
-// if (currentNumber === "") {
-      //   screenResult.innerHTML = numbers.target.innerHTML
-      // } else {
-      //   screenResult.innerHTML = currentNumber + numbers.target.innerHTML

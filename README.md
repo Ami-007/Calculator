@@ -20,5 +20,10 @@ A button to toggle for two different coloured displays (night shift/light shift)
 
 Add an ans button that allows for saving and adding the previous answer button back into a calculation when wanted.
 
+Add additional input so that original calculation is shown while new inputs are being added/
+
 Bugs:
 Need to fix previousNumber so that when doing multiple calculations it stores calculatedNumber so consecutive calculations can be done
+
+
+UPDATE: Bug Fix : added in stored value to allow previous calculation answer be stored so furtehr calculations can be done.
