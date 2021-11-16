@@ -4,6 +4,7 @@
   box-sizing: border-box;
   height: 100vh;
   width: 100%;
+  font-family: "Vollkorn", serif;
 }
 
 .calculator-grid {
@@ -28,7 +29,7 @@
   height: 90%;
   width: 95%;
   border: 1px solid #131515;
-  background-color: #002b4e;
+  background-color: dimgray;
 }
 .calculator-grid__screen h2 {
   height: 40%;
